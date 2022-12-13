@@ -19,3 +19,4 @@ import * as actions from "../constants/appConstant.js";
 
 export const fecthDataStart = { type: actions.FETCH_DATA_START };
 export const fecthDataEnd = { type: actions.FETCH_DATA_END };
+export const fecthNotify = { type: actions.FETCH_NOTIFY };

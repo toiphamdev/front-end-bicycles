@@ -44,7 +44,6 @@ function PostPage() {
                 <Card
                   onClick={() => handleRedirect(item)}
                   style={{
-                    width: "18rem",
                     cursor: "pointer",
                     objectFit: "cover",
                   }}
@@ -55,7 +54,7 @@ function PostPage() {
                     alt={item.altText}
                     src={item.src}
                     style={{
-                      height: "240px",
+                      height: "30%",
                       width: "40%",
                     }}
                     top

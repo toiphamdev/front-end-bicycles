@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   Collapse,
@@ -14,14 +14,19 @@ import {
   DropdownItem,
 } from "reactstrap";
 import logo from "../access/img/logo-bicycle.jpg";
+import { handleUserLogout } from "../redux/actions/userAction";
 
 const SystemHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const userInfo = useSelector((state) => state.user.userInfo);
+  const handleLogout = async () => {
+    await dispatch(handleUserLogout({ id: userInfo.id }));
+  };
   return (
     <div>
       <Navbar color="info" light expand="md">
@@ -31,16 +36,6 @@ const SystemHeader = () => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Dịch vụ
-              </DropdownToggle>
-              <DropdownMenu end>
-                <DropdownItem>Cho thuê xe đạp</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Chạy roadshow</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
             <NavItem>
               <Link className="nav-link" to="/system">
                 Quản lí địa điểm
@@ -52,19 +47,43 @@ const SystemHeader = () => {
               </Link>
             </NavItem>
             <NavItem>
-              <Link className="nav-link" to="/system/manage-ticket">
-                Quản lí vé
+              <Link className="nav-link" to="/system/manage-post">
+                Quản lí bài viết
               </Link>
             </NavItem>
             {isLoggedIn ? (
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  {userInfo.name}
+                  <span
+                    className="rounded-5 bg-secondary"
+                    style={{
+                      padding: "6px 14px",
+                      fontSize: "20px",
+                      backgroundImage: `url(${
+                        userInfo.image ? userInfo.image : ""
+                      })`,
+                      backgroundSize: "contain",
+                    }}
+                  >
+                    {!userInfo.image &&
+                      userInfo.email.slice(0, 1).toUpperCase()}
+                  </span>
                 </DropdownToggle>
                 <DropdownMenu end>
-                  <DropdownItem>Cho thuê xe đạp</DropdownItem>
+                  <DropdownItem>
+                    <Link className="nav-link" to="/user-info">
+                      Thông tin cá nhân
+                    </Link>
+                  </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Chạy roadshow</DropdownItem>
+
+                  <DropdownItem
+                    onClick={() => {
+                      handleLogout();
+                    }}
+                  >
+                    <span className="nav-link">Đăng xuất</span>
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             ) : (

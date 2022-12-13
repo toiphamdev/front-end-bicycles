@@ -92,8 +92,8 @@ function PlacePage() {
                     alt={place.altText}
                     src={place.src}
                     style={{
-                      height: "240px",
-                      width: "40%",
+                      height: `100%`,
+                      width: `40%`,
                     }}
                     top
                     width="100%"

@@ -1,7 +1,7 @@
 import * as actions from "../constants/appConstant";
 const initState = {
-  currentStateSearchResult: [],
   isLoading: false,
+  fetchNotify: false,
 };
 export const appReducer = (state = initState, action) => {
   switch (action.type) {
@@ -28,6 +28,11 @@ export const appReducer = (state = initState, action) => {
     case actions.FETCH_DATA_END: {
       let coppyState = { ...state };
       coppyState.isLoading = false;
+      return { ...coppyState };
+    }
+    case actions.FETCH_NOTIFY: {
+      let coppyState = { ...state };
+      coppyState.fetchNotify = !state.fetchNotify;
       return { ...coppyState };
     }
     default:

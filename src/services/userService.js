@@ -18,6 +18,37 @@ const login = async (data) => {
   }
 };
 
-const logout = () => {};
+const logout = async (data) => {
+  try {
+    const res = axios.post("/api/logout", data);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export { createNewUserService, login, logout };
+const getNotifyService = async (userEmail) => {
+  try {
+    const res = axios.get(`/api/get-notify?userEmail=${userEmail}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateNotifyService = async (data) => {
+  try {
+    const res = axios.put(`/api/update-notify`, data);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export {
+  createNewUserService,
+  login,
+  logout,
+  getNotifyService,
+  updateNotifyService,
+};

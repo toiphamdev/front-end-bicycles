@@ -13,6 +13,17 @@ export const buildDataSelect = (inputData, type) => {
         object.value = item.id;
         result.push(object);
         break;
+      case "POST":
+        object.label = item.altText;
+        object.value = item.id;
+        result.push(object);
+        break;
+      case "TYPE":
+        object.label = item.name;
+        object.value = item.id;
+        object.src = item.image;
+        result.push(object);
+        break;
       default:
         object.label = item.value;
         object.value = item.keyMap;

@@ -116,7 +116,7 @@ function Home() {
       <SlideSection
         title={"Các cơ sở"}
         settings={settings}
-        formLink={"../detail-place"}
+        formLink={"../detail-place/"}
         moreLink={"../place"}
         data={placeArr}
       />

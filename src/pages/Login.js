@@ -8,7 +8,6 @@ function Login() {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const handleLogin = async () => {
-    console.log(email, password);
     dispatch(handleUserLogin(email, password));
   };
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);

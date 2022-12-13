@@ -103,6 +103,147 @@ const getAllPostService = async (page, size) => {
   }
 };
 
+const getPostService = async () => {
+  try {
+    const res = axios.get(`/api/get-post`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updatePostService = async (data) => {
+  try {
+    const res = axios.put(`/api/update-post-by-id`, data);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const createPostService = async (data) => {
+  try {
+    const res = axios.post(`/api/create-post`, data);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deletePostService = async (id) => {
+  try {
+    const res = axios.delete(`/api/delete-post?id=${id}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//bicycle
+
+const getBicycleByPlaceService = async (placeId, page, size) => {
+  try {
+    const res = axios.get(
+      `/api/get-bicycle-by-place?placeId=${placeId}&page=${page}&size=${size}`
+    );
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getBicycleByPlaceAdminService = async (placeId, page, size) => {
+  try {
+    const res = axios.get(
+      `/api/get-bicycle-by-place-admin?placeId=${placeId}&page=${page}&size=${size}`
+    );
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getAllTypeBicycleService = async () => {
+  try {
+    const res = axios.get(`/api/get-all-type-bicycle`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const createBicycleService = async (data) => {
+  try {
+    const res = axios.post(`/api/create-bicycle`, data);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateBicycleService = async (data) => {
+  try {
+    const res = axios.put(`/api/update-bicycle`, data);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteBicycleService = async (id) => {
+  try {
+    const res = axios.delete(`/api/delete-bicycle?id=${id}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+//order
+const createOrderService = async (data) => {
+  try {
+    const res = axios.post(`/api/create-order`, data);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const updateOrderService = async (data) => {
+  try {
+    const res = axios.post(`/api/update-order`, data);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getOrderPriceService = async (userEmail) => {
+  try {
+    const res = axios.get(`/api/get-order-price?userEmail=${userEmail}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getOrderService = async (userEmail) => {
+  try {
+    const res = axios.get(`/api/get-order?userEmail=${userEmail}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getBicycleByNameService = async (name) => {
+  try {
+    const res = axios.get(`/api/get-bicycle-by-name?name=${name}`);
+    return res;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export {
   getAllCodeService,
   getPlaceService,
@@ -115,4 +256,19 @@ export {
   updatePlaceService,
   createPlaceService,
   deletePlaceService,
+  getBicycleByPlaceService,
+  getPostService,
+  updatePostService,
+  createPostService,
+  deletePostService,
+  getAllTypeBicycleService,
+  createBicycleService,
+  updateBicycleService,
+  deleteBicycleService,
+  createOrderService,
+  getBicycleByPlaceAdminService,
+  getOrderPriceService,
+  getOrderService,
+  updateOrderService,
+  getBicycleByNameService,
 };

@@ -56,11 +56,6 @@ function Footter() {
                   Cho thuê xe đạp
                 </a>
               </p>
-              <p>
-                <a href="#!" className="text-reset">
-                  Chạy roadshow
-                </a>
-              </p>
             </MDBCol>
 
             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
@@ -68,11 +63,6 @@ function Footter() {
               <p>
                 <Link to="/place" className="text-reset">
                   Các cơ sở
-                </Link>
-              </p>
-              <p>
-                <Link to="#!" className="text-reset">
-                  Đặt lịch chạy roadshow
                 </Link>
               </p>
               <p>
@@ -115,7 +105,7 @@ function Footter() {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
         © 2021 Copyright:
-        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
+        <a className="text-reset fw-bold" href="https://github.com/toiphamdev">
           toiphamdev.github.io
         </a>
       </div>

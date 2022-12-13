@@ -23,6 +23,9 @@ function DetailPost() {
         dangerouslySetInnerHTML={{
           __html: currentPost.descriptionHTML,
         }}
+        style={{
+          textAlign: "justify",
+        }}
       ></div>
     </div>
   );
